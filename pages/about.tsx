@@ -8,6 +8,7 @@ const AboutPage = (props: Props) => {
   const router = useRouter()
 
   console.log(router.query)
+  console.log(props)
 
   return (
     <div>
@@ -24,7 +25,9 @@ const AboutPage = (props: Props) => {
 
 export async function getServerSideProps() {
   return {
-    props: {}
+    props: {
+      name: 'Vinh Duc'
+    }
   }
 }
 
