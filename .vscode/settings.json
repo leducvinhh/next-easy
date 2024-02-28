@@ -29,7 +29,7 @@
   "prettier.enable": true,
   "prettier.configPath": ".prettierrc",
   "files.exclude": {
-    "node_modules/": true
+    // "node_modules/": true
   },
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 120
