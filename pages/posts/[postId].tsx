@@ -7,6 +7,14 @@ type Props = {
 }
 
 const PostDetailPage = ({ post }: Props) => {
+  const router = useRouter()
+
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
+
+  if (!post) return null
+
   return (
     <div>
       <h1>{post.title}</h1>
@@ -26,7 +34,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: listId,
-    fallback: false
+    fallback: true
   }
 }
 
@@ -38,7 +46,8 @@ export const getStaticProps: GetStaticProps<Props> = async (context: GetStaticPr
   return {
     props: {
       post: response
-    }
+    },
+    revalidate: 10
   }
 }
 

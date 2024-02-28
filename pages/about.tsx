@@ -1,4 +1,5 @@
 import Header from '@/components/common/Header'
+import { AdminLayout, MainLayout } from '@/components/layout'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
@@ -53,6 +54,8 @@ const AboutPage = (props: Props) => {
   )
 }
 
+AboutPage.Layout = AdminLayout
+
 export async function getStaticProps() {
   console.log('getStaticProps')
   return {
@@ -61,13 +64,5 @@ export async function getStaticProps() {
     }
   }
 }
-
-// export async function getServerSideProps() {
-//   return {
-//     props: {
-//       name: 'Vinh Duc'
-//     }
-//   }
-// }
 
 export default AboutPage
