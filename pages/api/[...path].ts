@@ -19,8 +19,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<any>) 
   req.headers.cookie = ''
 
   proxy.web(req, res, {
-    target: 'https://js-post-api.herokuapp.com',
+    target: process.env.API_URL,
     changeOrigin: true,
-    selfHandleResponse: false
+    selfHandleResponse: false,
+    xfwd: true
   })
 }
